@@ -16,6 +16,45 @@
 / {
     chosen { zmk,matrix-transform = &imprint_function_row; };
 
+    combos {
+        compatible = "zmk,combos";
+
+        return {
+            bindings = <&kp RET>;
+            key-positions = <45 44 46>;
+        };
+
+        capsLock {
+            bindings = <&kp CAPS>;
+            key-positions = <56 57 51 50>;
+        };
+
+        tab {
+            bindings = <&kp TAB>;
+            key-positions = <43 44 45>;
+        };
+
+        backTab {
+            bindings = <&kp LS(TAB)>;
+            key-positions = <43 44 42>;
+        };
+
+        mHomeRowApp {
+            bindings = <&kp LS(LA(LC(LG(F))))>;
+            key-positions = <71 40>;
+        };
+
+        lshift {
+            bindings = <&kp LSHFT>;
+            key-positions = <38 39>;
+        };
+
+        rshift {
+            bindings = <&kp RSHIFT>;
+            key-positions = <44 45>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -148,10 +187,10 @@
 
 &trackball_central_listener {
     input-processors =
-        // multiply sensitivity by 1, divide by 3 (make it slower for scrolling),,,,,,,
+        // multiply sensitivity by 1, divide by 3 (make it slower for scrolling),,,,,,,,
         <&zip_xy_scaler 1 3>,
-        // make this trackball output scrolling events by default instead of cursor movement,,,,,,,
+        // make this trackball output scrolling events by default instead of cursor movement,,,,,,,,
         <&zip_xy_to_scroll_mapper>,
-        // invert vertical scrolling so that the view moves in the same direction as the top of the trackball.,,,,,,,
+        // invert vertical scrolling so that the view moves in the same direction as the top of the trackball.,,,,,,,,
         <&zip_scroll_transform INPUT_TRANSFORM_Y_INVERT>;
 };
