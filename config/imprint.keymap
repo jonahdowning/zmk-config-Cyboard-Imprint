@@ -58,6 +58,16 @@
             bindings = <&kp ESCAPE>;
             key-positions = <43 44 45 46>;
         };
+
+        mDelWord {
+            bindings = <&kp LA(BACKSPACE)>;
+            key-positions = <70 75>;
+        };
+
+        mStickyShift {
+            bindings = <&sk LEFT_SHIFT>;
+            key-positions = <71 74>;
+        };
     };
 
     keymap {
@@ -192,10 +202,10 @@
 
 &trackball_central_listener {
     input-processors =
-        // multiply sensitivity by 1, divide by 3 (make it slower for scrolling),,,,,,,,,
+        // multiply sensitivity by 1, divide by 3 (make it slower for scrolling),,,,,,,,,,
         <&zip_xy_scaler 1 3>,
-        // make this trackball output scrolling events by default instead of cursor movement,,,,,,,,,
+        // make this trackball output scrolling events by default instead of cursor movement,,,,,,,,,,
         <&zip_xy_to_scroll_mapper>,
-        // invert vertical scrolling so that the view moves in the same direction as the top of the trackball.,,,,,,,,,
+        // invert vertical scrolling so that the view moves in the same direction as the top of the trackball.,,,,,,,,,,
         <&zip_scroll_transform INPUT_TRANSFORM_Y_INVERT>;
 };
