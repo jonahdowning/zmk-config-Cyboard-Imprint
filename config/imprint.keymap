@@ -83,11 +83,6 @@
             bindings = <&to 1>;
             key-positions = <22 20 21>;
         };
-
-        toSYS {
-            bindings = <&to 8>;
-            key-positions = <48 49 50>;
-        };
     };
 
     keymap {
@@ -102,7 +97,7 @@
 &none    &mt LEFT_SHIFT Z  &mt LEFT_CONTROL X  &mt LEFT_ALT C  &mt LEFT_COMMAND V  &mt LG(LC(LS(LA(LEFT_COMMAND)))) B           &mt RS(RA(RC(RG(RIGHT_COMMAND)))) N  &mt RIGHT_COMMAND M  &mt RIGHT_ALT COMMA  &mt RIGHT_CONTROL PERIOD  &mt RIGHT_SHIFT SLASH  &none
                            &none               &none                                                                                                                                      &none                &none
                                                                &lt 4 ESCAPE        &none                               &none    &none                                &none                &lt 5 DEL
-                                                               &lt 7  &sk LSHIFT           &lt 3 E                             &none    &none                                &kp SPACE            &lt 6 BACKSPACE
+                                                               &lt 7 TAB           &lt 3 E                             &none    &none                                &kp SPACE            &lt 6 BACKSPACE
             >;
         };
 
@@ -226,21 +221,19 @@
 };
 
 // right hand trackball configuration
-
-&trackball_peripheral_listener {
-    input-processors =
-        //     activate layer 3 within 500ms of the trackball moving,
-        <&zip_temp_layer 3 500>;
+ &trackball_peripheral_listener {
+    input-processors = 2000;
+//     activate layer 3 within 500ms of the trackball moving
+     <&zip_temp_layer 3 500>;
 };
-
 //left hand trackball configuration
 
 &trackball_central_listener {
     input-processors =
-        // multiply sensitivity by 1, divide by 3 (make it slower for scrolling),,,,,,,,,,,,,,,
+        // multiply sensitivity by 1, divide by 3 (make it slower for scrolling),,,,,,,,,,,,,
         <&zip_xy_scaler 1 3>,
-        // make this trackball output scrolling events by default instead of cursor movement,,,,,,,,,,,,,,,
+        // make this trackball output scrolling events by default instead of cursor movement,,,,,,,,,,,,,
         <&zip_xy_to_scroll_mapper>,
-        // invert vertical scrolling so that the view moves in the same direction as the top of the trackball.,,,,,,,,,,,,,,,
+        // invert vertical scrolling so that the view moves in the same direction as the top of the trackball.,,,,,,,,,,,,,
         <&zip_scroll_transform INPUT_TRANSFORM_Y_INVERT>;
 };
