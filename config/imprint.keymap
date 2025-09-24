@@ -80,12 +80,12 @@
         };
 
         toCSTR {
-            bindings = <&to 1>;
+            bindings = <&to 2>;
             key-positions = <12 13 14>;
         };
 
         ToSYS {
-            bindings = <&to 7>;
+            bindings = <&to 14>;
             key-positions = <50 49 48>;
         };
     };
@@ -101,8 +101,21 @@
 &none    &kp A             &kp S               &kp D           &kp F               &kp G                                        &kp H                                &kp J                &kp K                &kp L                     &kp SEMI               &kp SQT
 &none    &mt LEFT_SHIFT Z  &mt LEFT_CONTROL X  &mt LEFT_ALT C  &mt LEFT_COMMAND V  &mt LG(LC(LS(LA(LEFT_COMMAND)))) B           &mt RS(RA(RC(RG(RIGHT_COMMAND)))) N  &mt RIGHT_COMMAND M  &mt RIGHT_ALT COMMA  &mt RIGHT_CONTROL PERIOD  &mt RIGHT_SHIFT SLASH  &none
                            &none               &none                                                                                                                                      &none                &none
-                                                               &lt 3 ESCAPE        &none                               &none    &none                                &none                &lt 4 DEL
-                                                               &lt 6 TAB           &lt 2 E                             &none    &none                                &kp SPACE            &lt 5 BACKSPACE
+                                                               &lt 6 ESCAPE        &none                               &none    &none                                &none                &lt 8 DEL
+                                                               &lt 12 TAB          &lt 4 E                             &none    &none                                &kp SPACE            &lt 10 BACKSPACE
+            >;
+        };
+
+        WINDOW_BASE {
+            bindings = <
+&none    &none             &none           &none           &none               &none                                        &none                                &none                &none                &none                 &none                  &none
+&none    &none             &none           &none           &none               &none                                        &none                                &none                &none                &none                 &none                  &none
+&kp ESC  &kp Q             &kp W           &kp E           &kp R               &kp T                                        &kp Y                                &kp U                &kp I                &kp O                 &kp P                  &kp MINUS
+&none    &kp A             &kp S           &kp D           &kp F               &kp G                                        &kp H                                &kp J                &kp K                &kp L                 &kp SEMI               &kp SQT
+&none    &mt LEFT_SHIFT Z  &mt LEFT_GUI X  &mt LEFT_ALT C  &mt LEFT_CONTROL V  &mt LG(LC(LS(LA(LEFT_COMMAND)))) B           &mt RS(RA(RC(RG(RIGHT_COMMAND)))) N  &mt RIGHT_CONTROL M  &mt RIGHT_ALT COMMA  &mt RIGHT_GUI PERIOD  &mt RIGHT_SHIFT SLASH  &none
+                           &none           &none                                                                                                                                      &none                &none
+                                                           &lt 7 ESCAPE        &none                               &none    &none                                &none                &lt 9 DEL
+                                                           &lt 13 TAB          &lt 5 E                             &none    &none                                &kp SPACE            &lt 11 BACKSPACE
             >;
         };
 
@@ -114,8 +127,21 @@
 &none    &kp C             &kp S               &kp T           &kp R               &kp J                                                &kp K                                    &kp N                &kp A                &kp I                     &kp H              &kp SQT
 &none    &mt LEFT_SHIFT V  &mt LEFT_CONTROL W  &mt LEFT_ALT G  &mt LEFT_COMMAND M  &mt LG(LC(LS(LA(LEFT_COMMAND)))) SEMICOLON           &mt RS(RA(RC(RG(RIGHT_COMMAND)))) MINUS  &mt RIGHT_COMMAND P  &mt RIGHT_ALT COMMA  &mt RIGHT_CONTROL PERIOD  &mt RIGHT_SHIFT X  &none
                            &none               &none                                                                                                                                                  &none                &none
-                                                               &lt 3 ESCAPE        &none                                       &none    &none                                    &none                &lt 4 DEL
-                                                               &lt 6 TAB           &lt 3 E                                     &none    &none                                    &kp SPACE            &lt 5 BACKSPACE
+                                                               &lt 6 ESCAPE        &none                                       &none    &none                                    &none                &lt 8 DEL
+                                                               &lt 12 TAB          &lt 6 E                                     &none    &none                                    &kp SPACE            &lt 10 BACKSPACE
+            >;
+        };
+
+        wCSTR {
+            bindings = <
+&none    &none             &none           &none           &none               &none                                                &none                                    &none                &none                &none                 &none              &none
+&none    &none             &none           &none           &none               &none                                                &none                                    &none                &none                &none                 &none              &none
+&kp ESC  &kp B             &kp Y           &kp D           &kp L               &kp FSLH                                             &kp Q                                    &kp F                &kp O                &kp U                 &kp Z              &kp EQUAL
+&none    &kp C             &kp S           &kp T           &kp R               &kp J                                                &kp K                                    &kp N                &kp A                &kp I                 &kp H              &kp SQT
+&none    &mt LEFT_SHIFT V  &mt LEFT_GUI W  &mt LEFT_ALT G  &mt LEFT_CONTROL M  &mt LG(LC(LS(LA(LEFT_COMMAND)))) SEMICOLON           &mt RS(RA(RC(RG(RIGHT_COMMAND)))) MINUS  &mt RIGHT_CONTROL P  &mt RIGHT_ALT COMMA  &mt RIGHT_GUI PERIOD  &mt RIGHT_SHIFT X  &none
+                           &none           &none                                                                                                                                                  &none                &none
+                                                           &lt 7 ESCAPE        &none                                       &none    &none                                    &none                &lt 9 DEL
+                                                           &lt 13 TAB          &lt 7 E                                     &none    &none                                    &kp SPACE            &lt 11 BACKSPACE
             >;
         };
 
@@ -132,6 +158,19 @@
             >;
         };
 
+        wShort+Nav {
+            bindings = <
+&none                     &none          &none                 &none                  &none             &none                                      &none        &none      &none      &none      &none    &none
+&none                     &none          &none                 &none                  &none             &none                                      &none        &none      &none      &none      &none    &none
+&none                     &none          &kp LA(LEFT_BRACKET)  &kp LA(RIGHT_BRACKET)  &kp LC(R)         &kp LC(X)                                  &kp LS(TAB)  &kp PG_DN  &kp PG_UP  &kp TAB    &kp ESC  &none
+&none                     &kp LS(LG(S))  &kp LS(LC(Z))         &kp LC(Z)              &kp LC(C)         &kp LC(V)                                  &kp LEFT     &kp DOWN   &kp UP     &kp RIGHT  &kp RET  &none
+&kp LA(LS(LEFT_COMMAND))  &kp LSHFT      &kp LEFT_GUI          &kp LALT               &kp LEFT_CONTROL  &kp LC(LA(LS(LG(LEFT_CONTROL))))           &kp HOME     &none      &none      &kp END    &none    &none
+                                         &none                 &none                                                                                                       &none      &none
+                                                                                      &none             &none                             &none    &none        &none      &none
+                                                                                      &none             &none                             &none    &none        &none      &none
+            >;
+        };
+
         mWindow {
             bindings = <
 &none  &none  &none  &none  &none  &none           &none                  &none                       &none                     &none          &none     &none
@@ -142,6 +181,19 @@
               &none  &none                                                                            &none                     &none
                             &none  &none  &none    &none                  &none                       &none
                             &none  &none  &none    &none                  &kp LS(LA(LC(LEFT_SHIFT)))  &kp LA(LC(LEFT_COMMAND))
+            >;
+        };
+
+        wWindow {
+            bindings = <
+&none  &none  &none  &none  &none  &none           &none       &none       &none       &none       &none  &none
+&none  &none  &none  &none  &none  &none           &none       &none       &none       &none       &none  &none
+&none  &none  &none  &none  &none  &none           &kp LA(F4)  &kp LG(N7)  &kp LG(N8)  &kp LG(N9)  &none  &none
+&none  &none  &none  &none  &none  &none           &none       &kp LG(N4)  &kp LG(N5)  &kp LG(N6)  &none  &none
+&none  &none  &none  &none  &none  &none           &none       &kp LG(N1)  &kp LG(N2)  &kp LG(N3)  &none  &none
+              &none  &none                                                 &none       &none
+                            &none  &none  &none    &none       &none       &none
+                            &none  &none  &none    &none       &none       &none
             >;
         };
 
@@ -158,6 +210,19 @@
             >;
         };
 
+        wVS+FN {
+            bindings = <
+&none  &none      &none         &none     &none             &none                    &none  &none   &none   &none   &none    &none
+&none  &none      &none         &none     &none             &none                    &none  &none   &none   &none   &none    &none
+&none  &none      &none         &none     &kp LA(F10)       &kp LC(LS(F5))           &none  &kp F7  &kp F8  &kp F9  &kp F10  &none
+&none  &none      &none         &none     &none             &none                    &none  &kp F4  &kp F5  &kp F6  &kp F11  &none
+&none  &kp LSHFT  &kp LEFT_GUI  &kp LALT  &kp LEFT_CONTROL  &none                    &none  &kp F1  &kp F2  &kp F3  &kp F12  &none
+                  &none         &none                                                               &none   &none
+                                          &none             &none           &none    &none  &none   &none
+                                          &none             &none           &none    &none  &none   &none
+            >;
+        };
+
         mSym+Delim {
             bindings = <
 &none  &none      &none      &none     &none     &none           &none             &none                  &none            &none              &none          &none
@@ -168,6 +233,19 @@
                   &none      &none                                                                        &none            &none
                                        &none     &none  &none    &none             &none                  &none
                                        &none     &none  &none    &none             &none                  &none
+            >;
+        };
+
+        wSym+Delim {
+            bindings = <
+&none  &none      &none         &none     &none             &none           &none             &none                  &none            &none              &none          &none
+&none  &none      &none         &none     &none             &none           &none             &none                  &none            &none              &none          &none
+&none  &none      &none         &none     &none             &none           &kp HASH          &kp PERCENT            &kp EXCLAMATION  &kp TILDE          &kp PIPE       &kp GRAVE
+&none  &none      &none         &none     &none             &none           &kp LESS_THAN     &kp LEFT_PARENTHESIS   &kp LEFT_BRACE   &kp LEFT_BRACKET   &kp AMPERSAND  &kp DOLLAR
+&none  &kp LSHFT  &kp LEFT_GUI  &kp LALT  &kp LEFT_CONTROL  &none           &kp GREATER_THAN  &kp RIGHT_PARENTHESIS  &kp RIGHT_BRACE  &kp RIGHT_BRACKET  &kp AT_SIGN    &kp NON_US_BACKSLASH
+                  &none         &none                                                                                &none            &none
+                                          &none             &none  &none    &none             &none                  &none
+                                          &none             &none  &none    &none             &none                  &none
             >;
         };
 
@@ -184,16 +262,29 @@
             >;
         };
 
+        wMedia+Num {
+            bindings = <
+&none                         &none                     &none         &none              &none             &none                                      &none     &none   &none      &none   &none      &none
+&none                         &none                     &none         &none              &none             &none                                      &none     &none   &none      &none   &none      &none
+&none                         &kp C_BRIGHTNESS_MAXIMUM  &kp K_MUTE    &kp C_VOLUME_DOWN  &kp C_VOLUME_UP   &kp C_BRIGHTNESS_INC                       &kp STAR  &kp N7  &kp N8     &kp N9  &kp FSLH   &none
+&none                         &kp C_BRIGHTNESS_MINIMUM  &kp C_PREV    &kp C_PLAY         &kp C_NEXT        &kp C_BRIGHTNESS_DEC                       &kp DOT   &kp N4  &kp N5     &kp N6  &kp EQUAL  &none
+&kp LA(LS(LG(LEFT_COMMAND)))  &kp LSHFT                 &kp LEFT_GUI  &kp LALT           &kp LEFT_CONTROL  &kp LG(LC(LA(LS(LEFT_COMMAND))))           &kp PLUS  &kp N1  &kp N2     &kp N3  &kp MINUS  &none
+                                                        &none         &none                                                                                             &none      &none
+                                                                                         &none             &none                             &none    &none     &none   &kp BSPC
+                                                                                         &none             &none                             &none    &none     &kp N0  &kp SPACE
+            >;
+        };
+
         Keyboard_Control_Layer {
             bindings = <
-&trans       &trans        &trans        &trans        &trans        &trans                    &trans          &trans           &trans           &trans           &trans           &trans
-&bt BT_CLR   &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4              &trans          &rgb_ug RGB_TOG  &rgb_ug RGB_EFF  &trans           &trans           &trans
-&sys_reset   &trans        &trans        &trans        &trans        &studio_unlock            &studio_unlock  &rgb_ug RGB_HUI  &rgb_ug RGB_SAI  &rgb_ug RGB_BRI  &rgb_ug RGB_SPI  &sys_reset
-&bootloader  &trans        &trans        &trans        &trans        &trans                    &trans          &rgb_ug RGB_HUD  &rgb_ug RGB_SAD  &rgb_ug RGB_BRD  &rgb_ug RGB_SPD  &bootloader
-&to 0        &trans        &trans        &trans        &trans        &trans                    &trans          &trans           &trans           &trans           &trans           &to 0
-                           &trans        &trans                                                                                 &trans           &trans
-                                                       &trans        &trans          &trans    &trans          &trans           &trans
-                                                       &trans        &trans          &trans    &trans          &trans           &trans
+&none        &none         &none         &none         &none         &none                    &none           &none            &none            &none            &none            &none
+&bt BT_CLR   &bt BT_SEL 0  &bt BT_SEL 1  &bt BT_SEL 2  &bt BT_SEL 3  &bt BT_SEL 4             &none           &rgb_ug RGB_TOG  &rgb_ug RGB_EFF  &none            &none            &none
+&sys_reset   &none         &none         &none         &none         &studio_unlock           &studio_unlock  &rgb_ug RGB_HUI  &rgb_ug RGB_SAI  &rgb_ug RGB_BRI  &rgb_ug RGB_SPI  &sys_reset
+&bootloader  &none         &none         &none         &none         &none                    &none           &rgb_ug RGB_HUD  &rgb_ug RGB_SAD  &rgb_ug RGB_BRD  &rgb_ug RGB_SPD  &bootloader
+&to 0        &none         &none         &none         &none         &none                    &none           &none            &none            &none            &none            &to 0
+                           &none         &none                                                                                 &none            &none
+                                                       &none         &none           &none    &none           &none            &none
+                                                       &none         &none           &none    &none           &none            &none
             >;
         };
 
@@ -229,7 +320,7 @@
 
 &trackball_peripheral_listener {
     input-processors =
-        //     activate layer 2 within 500ms of the trackball moving,,,,,,,
+        //     activate layer 2 within 500ms of the trackball moving,,,,,,,,
         <&zip_temp_layer 9 500>;
 };
 
@@ -237,10 +328,10 @@
 
 &trackball_central_listener {
     input-processors =
-        // multiply sensitivity by 1, divide by 3 (make it slower for scrolling),,,,,,,,,,,,,
+        // multiply sensitivity by 1, divide by 3 (make it slower for scrolling),,,,,,,,,,,,,,
         <&zip_xy_scaler 1 16>,
-        // make this trackball output scrolling events by default instead of cursor movement,,,,,,,,,,,,,
+        // make this trackball output scrolling events by default instead of cursor movement,,,,,,,,,,,,,,
         <&zip_xy_to_scroll_mapper>,
-        // invert vertical scrolling so that the view moves in the same direction as the top of the trackball.,,,,,,,,,,,,,
+        // invert vertical scrolling so that the view moves in the same direction as the top of the trackball.,,,,,,,,,,,,,,
         <&zip_scroll_transform INPUT_TRANSFORM_Y_INVERT>;
 };
