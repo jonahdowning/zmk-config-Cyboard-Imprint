@@ -3,6 +3,7 @@
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/bt.h>
 #include <dt-bindings/zmk/keys.h>
+#include <dt-bindings/zmk/outputs.h>
 #include <dt-bindings/zmk/pointing.h>
 #include <dt-bindings/zmk/rgb.h>
 
@@ -120,6 +121,45 @@
         };
     };
 
+    macros {
+        wDelLine: wDelLine {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap>, <&kp END &kp LS(HOME) &kp BACKSPACE>;
+
+            label = "WDELLINE";
+        };
+
+        mDelLine: mDelLine {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_tap>, <&kp LG(RIGHT) &kp LG(BACKSPACE)>;
+
+            label = "MDELLINE";
+        };
+
+        wCtrlAltDel: wCtrlAltDel {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LA(LC(DEL))>;
+            label = "WCTRLALTDEL";
+        };
+
+        toMACOS: toMACOS {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&bt BT_SEL 0 &out OUT_BLE &to 0>;
+            label = "TOMACOS";
+        };
+
+        toWINDOW: toWINDOW {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&bt BT_SEL 4 &out OUT_BLE &to 1>;
+            label = "TOWINDOW";
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
@@ -181,7 +221,7 @@
 &none                         &none                      &none                 &none                  &none      &none               &none         &none      &none      &none          &none    &none
 &kp LS(LC(LG(LA(B))))         &kp LS(LA(LC(LG(GRAVE))))  &kp LG(LEFT_BRACKET)  &kp LG(RIGHT_BRACKET)  &kp LG(R)  &kp LG(X)           &kp LS(TAB)   &kp PG_DN  &kp PG_UP  &kp TAB        &kp ESC  &none
 &kp LS(LA(LC(LG(NUMBER_4))))  &kp LS(LA(LC(LG(N2))))     &kp LS(LG(Z))         &kp LG(Z)              &kp LG(C)  &kp LG(V)           &kp LEFT      &kp DOWN   &kp UP     &kp RIGHT      &kp RET  &none
-&kp LA(LS(LEFT_COMMAND))      &kp LSHFT                  &kp LCTRL             &kp LALT               &kp LGUI   &kp ESC             &kp LG(LEFT)  &none      &none      &kp LG(RIGHT)  &none    &none
+&kp LA(LS(LEFT_COMMAND))      &kp LSHFT                  &kp LCTRL             &kp LALT               &kp LGUI   &kp ESC             &kp LG(LEFT)  &mDelLine  &none      &kp LG(RIGHT)  &none    &none
                                                          &none                 &none                                                                          &none      &none
                                                                                                       &none      &none      &none    &none         &none      &none
                                                                                                       &none      &none      &none    &none         &none      &none
@@ -194,9 +234,9 @@
 &none                     &none          &none                 &none                  &none             &none                                      &none        &none      &none      &none      &none    &none
 &none                     &none          &kp LA(LEFT_BRACKET)  &kp LA(RIGHT_BRACKET)  &kp LC(R)         &kp LC(X)                                  &kp LS(TAB)  &kp PG_DN  &kp PG_UP  &kp TAB    &kp ESC  &none
 &none                     &kp LS(LG(S))  &kp LS(LC(Z))         &kp LC(Z)              &kp LC(C)         &kp LC(V)                                  &kp LEFT     &kp DOWN   &kp UP     &kp RIGHT  &kp RET  &none
-&kp LA(LS(LEFT_COMMAND))  &kp LSHFT      &kp LEFT_GUI          &kp LALT               &kp LEFT_CONTROL  &kp LC(LA(LS(LG(LEFT_CONTROL))))           &kp HOME     &none      &none      &kp END    &none    &none
+&kp LA(LS(LEFT_COMMAND))  &kp LSHFT      &kp LEFT_GUI          &kp LALT               &kp LEFT_CONTROL  &kp LC(LA(LS(LG(LEFT_CONTROL))))           &kp HOME     &wDelLine  &none      &kp END    &none    &none
                                          &none                 &none                                                                                                       &none      &none
-                                                                                      &none             &none                             &none    &none        &none      &none
+                                                                                      &wCtrlAltDel      &none                             &none    &none        &none      &none
                                                                                       &none             &none                             &none    &none        &none      &none
             >;
         };
@@ -350,7 +390,7 @@
 
 &trackball_peripheral_listener {
     input-processors =
-        //     activate layer 16 within 500ms of the trackball moving,,,,,,,,,
+        //     activate layer 16 within 500ms of the trackball moving,,,,,,,,,,
         <&zip_temp_layer 16 500>;
 };
 
@@ -358,10 +398,10 @@
 
 &trackball_central_listener {
     input-processors =
-        // multiply sensitivity by 1, divide by 3 (make it slower for scrolling),,,,,,,,,,,,,,,
+        // multiply sensitivity by 1, divide by 3 (make it slower for scrolling),,,,,,,,,,,,,,,,
         <&zip_xy_scaler 1 16>,
-        // make this trackball output scrolling events by default instead of cursor movement,,,,,,,,,,,,,,,
+        // make this trackball output scrolling events by default instead of cursor movement,,,,,,,,,,,,,,,,
         <&zip_xy_to_scroll_mapper>,
-        // invert vertical scrolling so that the view moves in the same direction as the top of the trackball.,,,,,,,,,,,,,,,
+        // invert vertical scrolling so that the view moves in the same direction as the top of the trackball.,,,,,,,,,,,,,,,,
         <&zip_scroll_transform INPUT_TRANSFORM_Y_INVERT>;
 };
