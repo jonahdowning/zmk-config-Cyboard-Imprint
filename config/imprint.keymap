@@ -192,7 +192,7 @@
 &kp ESC  &kp Q             &kp W               &kp E           &kp R               &kp T                                        &kp Y                                &kp U                &kp I                &kp O                     &kp P                  &kp MINUS
 &none    &kp A             &kp S               &kp D           &kp F               &kp G                                        &kp H                                &kp J                &kp K                &kp L                     &kp SEMI               &kp SQT
 &none    &mt LEFT_SHIFT Z  &mt LEFT_CONTROL X  &mt LEFT_ALT C  &mt LEFT_COMMAND V  &mt LG(LC(LS(LA(LEFT_COMMAND)))) B           &mt RS(RA(RC(RG(RIGHT_COMMAND)))) N  &mt RIGHT_COMMAND M  &mt RIGHT_ALT COMMA  &mt RIGHT_CONTROL PERIOD  &mt RIGHT_SHIFT SLASH  &none
-                           &none               &to 5                                                                                                                                      &kp MINUS            &none
+                           &to 5               &none                                                                                                                                      &kp MINUS            &none
                                                                &lt 9 ESCAPE        &sk LEFT_SHIFT                      &none    &none                                &none                &lt 11 DEL
                                                                &lt 15 TAB          &lt 7 E                             &none    &none                                &kp SPACE            &lt 13 BACKSPACE
             >;
@@ -205,7 +205,7 @@
 &kp ESC  &kp Q             &kp W           &kp E           &kp R               &kp T                                        &kp Y                                &kp U                &kp I                &kp O                 &kp P                  &kp MINUS
 &none    &kp A             &kp S           &kp D           &kp F               &kp G                                        &kp H                                &kp J                &kp K                &kp L                 &kp SEMI               &kp SQT
 &none    &mt LEFT_SHIFT Z  &mt LEFT_GUI X  &mt LEFT_ALT C  &mt LEFT_CONTROL V  &mt LG(LC(LS(LA(LEFT_COMMAND)))) B           &mt RS(RA(RC(RG(RIGHT_COMMAND)))) N  &mt RIGHT_CONTROL M  &mt RIGHT_ALT COMMA  &mt RIGHT_GUI PERIOD  &mt RIGHT_SHIFT SLASH  &none
-                           &none           &none                                                                                                                                      &kp MINUS            &none
+                           &none           &to 6                                                                                                                                      &kp MINUS            &none
                                                            &lt 10 ESCAPE       &sk LEFT_SHIFT                      &none    &none                                &none                &lt 12 DEL
                                                            &lt 16 TAB          &lt 8 E                             &none    &none                                &kp SPACE            &lt 14 BACKSPACE
             >;
@@ -244,7 +244,7 @@
 &none  &none           &mkp MB4   &mkp MB5   &none      &none                   &none  &none  &none  &none  &none  &none
 &none  &none           &none      &none      &none      &none                   &none  &none  &none  &none  &none  &none
 &none  &sk LEFT_SHIFT  &mkp RCLK  &mkp MCLK  &mkp LCLK  &none                   &none  &none  &none  &none  &none  &none
-                       &to 5      &to 5                                                       &none  &none
+                       &to 5      &to 6                                                       &none  &none
                                              &mkp RCLK  &mkp MCLK  &mkp LCLK    &none  &none  &none
                                              &kp TAB    &mkp MB4   &mkp MB5     &none  &none  &none
             >;
@@ -265,14 +265,14 @@
 
         wMouse {
             bindings = <
-&none                     &none          &none          &none      &none         &none                                      &none        &none      &none      &none      &none    &none
-&none                     &none          &none          &none      &none         &none                                      &none        &none      &none      &none      &none    &none
-&none                     &none          &mkp MB4       &mkp MB5   &kp LC(R)     &kp LC(X)                                  &kp LS(TAB)  &kp PG_DN  &kp PG_UP  &kp TAB    &kp ESC  &none
-&none                     &kp LS(LG(S))  &kp LS(LC(Z))  &kp LC(Z)  &kp LC(C)     &kp LC(V)                                  &kp LEFT     &kp DOWN   &kp UP     &kp RIGHT  &kp RET  &none
-&kp LA(LS(LEFT_COMMAND))  &sk LSHFT      &mkp RCLK      &mkp MCLK  &mkp LCLK     &kp LC(LA(LS(LG(LEFT_CONTROL))))           &kp HOME     &wDelLine  &none      &kp END    &none    &none
-                                         &none          &none                                                                                       &none      &none
-                                                                   &wCtrlAltDel  &none                             &none    &none        &none      &kp DEL
-                                                                   &none         &none                             &none    &none        &kp SPACE  &kp BSPC
+&none                     &none          &none          &none      &none      &none                                          &none  &none  &none  &none  &none  &none
+&none                     &none          &none          &none      &none      &none                                          &none  &none  &none  &none  &none  &none
+&none                     &none          &mkp MB4       &mkp MB5   &kp LC(R)  &kp LC(X)                                      &none  &none  &none  &none  &none  &none
+&none                     &kp LS(LG(S))  &kp LS(LC(Z))  &kp LC(Z)  &kp LC(C)  &kp LC(V)                                      &none  &none  &none  &none  &none  &none
+&kp LA(LS(LEFT_COMMAND))  &sk LSHFT      &mkp RCLK      &mkp MCLK  &mkp LCLK  &kp LC(LA(LS(LG(LEFT_CONTROL))))               &none  &none  &none  &none  &none  &none
+                                         &none          &to 1                                                                              &none  &none
+                                                                   &mkp RCLK  &mkp MCLK                         &mkp LCLK    &none  &none  &none
+                                                                   &none      &mkp MB4                          &mkp MB5     &none  &none  &none
             >;
         };
 
@@ -438,7 +438,7 @@
 
 &trackball_peripheral_listener {
     input-processors =
-        //     activate layer 4 within 500ms of the trackball moving,,,,,,,,,,,,,,,,,,,,,,,,,,
+        //     activate layer 4 within 500ms of the trackball moving,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_temp_layer 4 500>;
 };
 
@@ -446,10 +446,10 @@
 
 &trackball_central_listener {
     input-processors =
-        // multiply sensitivity by 1, divide by 3 (make it slower for scrolling),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // multiply sensitivity by 1, divide by 3 (make it slower for scrolling),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_xy_scaler 1 16>,
-        // make this trackball output scrolling events by default instead of cursor movement,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // make this trackball output scrolling events by default instead of cursor movement,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_xy_to_scroll_mapper>,
-        // invert vertical scrolling so that the view moves in the same direction as the top of the trackball.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // invert vertical scrolling so that the view moves in the same direction as the top of the trackball.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_scroll_transform INPUT_TRANSFORM_Y_INVERT>;
 };
