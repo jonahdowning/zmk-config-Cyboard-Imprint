@@ -196,7 +196,7 @@
 &none    &mt LEFT_SHIFT Z  &mt LEFT_CONTROL X  &mt LEFT_ALT C  &mt LEFT_COMMAND V  &mt LG(LC(LS(LA(LEFT_COMMAND)))) B           &mt RS(RA(RC(RG(RIGHT_COMMAND)))) N  &mt RIGHT_COMMAND M  &mt RIGHT_ALT COMMA  &mt RIGHT_CONTROL PERIOD  &mt RIGHT_SHIFT SLASH  &none
                            &to 5               &none                                                                                                                                      &kp MINUS            &none
                                                                &lt 9 ESCAPE        &sk LEFT_SHIFT                      &none    &none                                &none                &lt 11 DEL
-                                                               &lt 15 TAB          &lt 7 E                             &none    &none                                &kp SPACE            &lt 13 BACKSPACE
+                                                               &lt 15 &sk LEFT_SHIFT          &lt 7 E                             &none    &none                                &kp SPACE            &lt 13 BACKSPACE
             >;
         };
 
