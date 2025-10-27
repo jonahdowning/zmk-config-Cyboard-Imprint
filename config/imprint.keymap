@@ -306,14 +306,14 @@
 
         mWindow {
             bindings = <
-&none  &none  &none  &none  &none  &none                    &none                  &none                       &none                     &none          &none     &none
-&none  &none  &none  &none  &none  &none                    &none                  &none                       &none                     &none          &none     &none
-&none  &none  &none  &none  &none  &none                    &kp LA(LS(LC(SPACE)))  &kp N1                      &kp N2                    &kp N3         &kp N4    &kp LC(LA(LS(P)))
-&none  &none  &none  &none  &none  &calibrePressG           &kp H                  &kp J                       &kp K                     &kp L          &kp SEMI  &kp SQT
-&none  &none  &none  &none  &none  &none                    &kp LS(LC(LA(F)))      &kp LS(LA(LC(MINUS)))       &kp LS(LA(LC(EQUAL)))     &kp LG(LC(F))  &none     &kp LS(LC(LA(R)))
-              &none  &none                                                                                     &none                     &none
-                            &none  &none           &none    &none                  &none                       &none
-                            &none  &none           &none    &none                  &kp LS(LA(LC(LEFT_SHIFT)))  &kp LA(LC(LEFT_COMMAND))
+&none  &none                     &none                     &none                     &none                 &none                    &none                  &none                       &none                     &none          &none     &none
+&none  &none                     &none                     &none                     &none                 &none                    &none                  &none                       &none                     &none          &none     &none
+&none  &none                     &none                     &none                     &none                 &none                    &kp LA(LS(LC(SPACE)))  &kp N1                      &kp N2                    &kp N3         &kp N4    &kp LC(LA(LS(P)))
+&none  &none                     &none                     &none                     &none                 &calibrePressG           &kp H                  &kp J                       &kp K                     &kp L          &kp SEMI  &kp SQT
+&none  &sk LA(LC(LEFT_COMMAND))  &sk LS(LC(LEFT_COMMAND))  &sk LA(LS(LEFT_COMMAND))  &sk LS(LC(LEFT_ALT))  &none                    &kp LS(LC(LA(F)))      &kp LS(LA(LC(MINUS)))       &kp LS(LA(LC(EQUAL)))     &kp LG(LC(F))  &none     &kp LS(LC(LA(R)))
+                                 &none                     &none                                                                                                                       &none                     &none
+                                                                                     &none                 &none           &none    &none                  &none                       &none
+                                                                                     &none                 &none           &none    &none                  &kp LS(LA(LC(LEFT_SHIFT)))  &kp LA(LC(LEFT_COMMAND))
             >;
         };
 
@@ -440,7 +440,7 @@
 
 &trackball_peripheral_listener {
     input-processors =
-        //     activate layer 4 within 500ms of the trackball moving,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        //     activate layer 4 within 500ms of the trackball moving,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_temp_layer 4 500>;
 };
 
@@ -448,10 +448,10 @@
 
 &trackball_central_listener {
     input-processors =
-        // multiply sensitivity by 1, divide by 3 (make it slower for scrolling),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // multiply sensitivity by 1, divide by 3 (make it slower for scrolling),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_xy_scaler 1 16>,
-        // make this trackball output scrolling events by default instead of cursor movement,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // make this trackball output scrolling events by default instead of cursor movement,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_xy_to_scroll_mapper>,
-        // invert vertical scrolling so that the view moves in the same direction as the top of the trackball.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // invert vertical scrolling so that the view moves in the same direction as the top of the trackball.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_scroll_transform INPUT_TRANSFORM_Y_INVERT>;
 };
