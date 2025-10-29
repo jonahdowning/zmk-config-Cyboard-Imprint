@@ -134,6 +134,11 @@
             bindings = <&sys_reset>;
             key-positions = <64 65 66>;
         };
+
+        rgbOff {
+            bindings = <&rgb_ug RGB_OFF>;
+            key-positions = <63 62>;
+        };
     };
 
     macros {
@@ -163,22 +168,14 @@
         toMACOS: toMACOS {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings =
-                <&bt BT_SEL 0 &out OUT_BLE &to 0 &rgb_ug RGB_COLOR_HSB(66,100,50) &rgb_ug RGB_ON>,
-                <&macro_wait_time 5000>,
-                <&rgb_ug RGB_OFF>;
-
+            bindings = <&bt BT_SEL 0 &out OUT_BLE &to 0 &rgb_ug RGB_COLOR_HSB(66,100,50) &rgb_ug RGB_ON>;
             label = "TOMACOS";
         };
 
         toWINDOW: toWINDOW {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings =
-                <&bt BT_SEL 4 &out OUT_BLE &to 1 &rgb_ug RGB_COLOR_HSB(222,100,50) &rgb_ug RGB_ON>,
-                <&macro_wait_time 5000>,
-                <&rgb_ug RGB_OFF>;
-
+            bindings = <&bt BT_SEL 4 &out OUT_BLE &to 1 &rgb_ug RGB_COLOR_HSB(222,100,50) &rgb_ug RGB_ON>;
             label = "TOWINDOW";
         };
 
@@ -453,7 +450,7 @@
 
 &trackball_peripheral_listener {
     input-processors =
-        //     activate layer 4 within 500ms of the trackball moving,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        //     activate layer 4 within 500ms of the trackball moving,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_temp_layer 4 500>;
 };
 
@@ -461,10 +458,10 @@
 
 &trackball_central_listener {
     input-processors =
-        // multiply sensitivity by 1, divide by 3 (make it slower for scrolling),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // multiply sensitivity by 1, divide by 3 (make it slower for scrolling),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_xy_scaler 1 16>,
-        // make this trackball output scrolling events by default instead of cursor movement,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // make this trackball output scrolling events by default instead of cursor movement,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_xy_to_scroll_mapper>,
-        // invert vertical scrolling so that the view moves in the same direction as the top of the trackball.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // invert vertical scrolling so that the view moves in the same direction as the top of the trackball.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_scroll_transform INPUT_TRANSFORM_Y_INVERT>;
 };
