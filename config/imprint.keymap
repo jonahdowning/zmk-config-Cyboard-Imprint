@@ -121,12 +121,12 @@
         };
 
         goTo_MACOS {
-            bindings = <&toMACOS>;
+            bindings = <&to_MACOS_OS>;
             key-positions = <47 46 45>;
         };
 
         goTo_WINDOW {
-            bindings = <&toWINDOW>;
+            bindings = <&to_WINDOW_OS>;
             key-positions = <34 33 35>;
         };
 
@@ -165,17 +165,17 @@
             label = "WCTRLALTDEL";
         };
 
-        toMACOS: toMACOS {
+        to_MACOS_OS: toMACOS {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&bt BT_SEL 0 &out OUT_BLE &to 0 &rgb_ug RGB_COLOR_HSB(35,100,50) &rgb_ug RGB_ON>;
+            bindings = <&bt BT_SEL 0 &out OUT_BLE &to_MAC_BASE>;
             label = "TOMACOS";
         };
 
-        toWINDOW: toWINDOW {
+        to_WINDOW_OS: toWINDOW {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&bt BT_SEL 4 &out OUT_BLE &to 1 &rgb_ug RGB_COLOR_HSB(222,100,50) &rgb_ug RGB_ON>;
+            bindings = <&bt BT_SEL 4 &out OUT_BLE &to_WINDOWS_BASE>;
             label = "TOWINDOW";
         };
 
@@ -196,8 +196,22 @@
         to_SYS: to_SYS {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
-            bindings = <&to 17 &rgb_ug RGB_COLOR_HSB(359,100,50) &rgb_ug RGB_ON>;
+            bindings = <&to 17 &rgb_ug RGB_COLOR_HSB(0,100,50)>;
             label = "TO_SYS";
+        };
+
+        to_WINDOWS_BASE: to_WINDOWS_BASE {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&rgb_ug RGB_COLOR_HSB(240,100,50) &to 1>;
+            label = "TO_WINDOWS_BASE";
+        };
+
+        to_MAC_BASE: to_MAC_BASE {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&rgb_ug RGB_COLOR_HSB(26,100,50) &to 1>;
+            label = "TO_MAC_BASE";
         };
     };
 
@@ -457,7 +471,7 @@
 
 &trackball_peripheral_listener {
     input-processors =
-        //     activate layer 4 within 500ms of the trackball moving,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        //     activate layer 4 within 500ms of the trackball moving,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_temp_layer 4 500>;
 };
 
@@ -465,10 +479,10 @@
 
 &trackball_central_listener {
     input-processors =
-        // multiply sensitivity by 1, divide by 3 (make it slower for scrolling),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // multiply sensitivity by 1, divide by 3 (make it slower for scrolling),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_xy_scaler 1 16>,
-        // make this trackball output scrolling events by default instead of cursor movement,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // make this trackball output scrolling events by default instead of cursor movement,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_xy_to_scroll_mapper>,
-        // invert vertical scrolling so that the view moves in the same direction as the top of the trackball.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // invert vertical scrolling so that the view moves in the same direction as the top of the trackball.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_scroll_transform INPUT_TRANSFORM_Y_INVERT>;
 };
