@@ -122,12 +122,12 @@
 
         goTo_MACOS {
             bindings = <&to_MACOS_OS>;
-            key-positions = <55 56 57 58>;
+            key-positions = <13 22>;
         };
 
-        goTo_WINDOW {
-            bindings = <&to_WINDOW_OS>;
-            key-positions = <34 33 32 31>;
+        goTo_WORK_WINDOW {
+            bindings = <&to_WORK_WINDOW_OS>;
+            key-positions = <17 18>;
         };
 
         sys_reset {
@@ -135,7 +135,7 @@
             key-positions = <64 65 66>;
         };
 
-        rgbOff {
+        toggleRGB {
             bindings = <&rgb_ug RGB_TOG>;
             key-positions = <63 62>;
         };
@@ -143,6 +143,21 @@
         to_mGaming {
             bindings = <&to 19>;
             key-positions = <60 61 48 49>;
+        };
+
+        goTo_FUN_WINDOW {
+            bindings = <&to_FUN_WINDOWS_OS>;
+            key-positions = <16 19>;
+        };
+
+        goTo_IOS {
+            bindings = <&to_IOS_OS>;
+            key-positions = <14 21>;
+        };
+
+        goTo_IPADOS {
+            bindings = <&to_IPADOS_OS>;
+            key-positions = <15 20>;
         };
     };
 
@@ -177,7 +192,7 @@
             label = "TOMACOS";
         };
 
-        to_WINDOW_OS: toWINDOW {
+        to_WORK_WINDOW_OS: toWINDOW {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&bt BT_SEL 4 &out OUT_BLE &to_WINDOWS_BASE>;
@@ -217,6 +232,27 @@
             #binding-cells = <0>;
             bindings = <&to 0 &rgb_ug RGB_COLOR_HSB(21,100,50)>;
             label = "TO_MAC_BASE";
+        };
+
+        to_FUN_WINDOWS_OS: to_FUN_WINDOWS_OS {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&bt BT_SEL 3 &out OUT_BLE &to_WINDOWS_BASE>;
+            label = "TO_FUN_WINDOWS_OS";
+        };
+
+        to_IOS_OS: to_IOS {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&bt BT_SEL 1 &out OUT_BLE &to_MAC_BASE>;
+            label = "TO_IOS";
+        };
+
+        to_IPADOS_OS: to_IPADOS_OS {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&bt BT_SEL 2 &out OUT_BLE &to_MAC_BASE>;
+            label = "TO_IPADOS_OS";
         };
     };
 
@@ -489,7 +525,7 @@
 
 &trackball_peripheral_listener {
     input-processors =
-        //     activate layer 4 within 500ms of the trackball moving,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        //     activate layer 4 within 500ms of the trackball moving,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_temp_layer 4 500>;
 };
 
@@ -497,10 +533,10 @@
 
 &trackball_central_listener {
     input-processors =
-        // multiply sensitivity by 1, divide by 3 (make it slower for scrolling),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // multiply sensitivity by 1, divide by 3 (make it slower for scrolling),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_xy_scaler 1 16>,
-        // make this trackball output scrolling events by default instead of cursor movement,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // make this trackball output scrolling events by default instead of cursor movement,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_xy_to_scroll_mapper>,
-        // invert vertical scrolling so that the view moves in the same direction as the top of the trackball.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // invert vertical scrolling so that the view moves in the same direction as the top of the trackball.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_scroll_transform INPUT_TRANSFORM_Y_INVERT>;
 };
