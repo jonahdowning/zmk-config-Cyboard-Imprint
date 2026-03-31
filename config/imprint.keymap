@@ -434,7 +434,7 @@
 &none  &none      &none      &none     &none     &none           &none             &none                  &none            &none              &none          &none
 &none  &none      &none      &none     &none     &none           &kp HASH          &kp PERCENT            &kp EXCLAMATION  &kp TILDE          &kp PIPE       &kp GRAVE
 &none  &none      &none      &none     &none     &none           &kp LESS_THAN     &kp LEFT_PARENTHESIS   &kp LEFT_BRACE   &kp LEFT_BRACKET   &kp AMPERSAND  &kp DOLLAR
-&none  &kp LSHFT  &kp LCTRL  &kp LALT  &kp LGUI  &none           &kp GREATER_THAN  &kp RIGHT_PARENTHESIS  &kp RIGHT_BRACE  &kp RIGHT_BRACKET  &kp AT_SIGN    &kp NON_US_BACKSLASH
+&none  &kp LSHFT  &kp LCTRL  &kp LALT  &kp LGUI  &none           &kp GREATER_THAN  &kp RIGHT_PARENTHESIS  &kp RIGHT_BRACE  &kp RIGHT_BRACKET  &kp AT_SIGN    &kp BACKSLASH
                   &none      &none                                                                        &none            &none
                                        &none     &none  &none    &none             &none                  &none
                                        &none     &none  &none    &none             &none                  &none
@@ -447,7 +447,7 @@
 &none  &none      &none         &none     &none             &none           &none             &none                  &none            &none              &none          &none
 &none  &none      &none         &none     &none             &none           &kp HASH          &kp PERCENT            &kp EXCLAMATION  &kp TILDE          &kp PIPE       &kp GRAVE
 &none  &none      &none         &none     &none             &none           &kp LESS_THAN     &kp LEFT_PARENTHESIS   &kp LEFT_BRACE   &kp LEFT_BRACKET   &kp AMPERSAND  &kp DOLLAR
-&none  &kp LSHFT  &kp LEFT_GUI  &kp LALT  &kp LEFT_CONTROL  &none           &kp GREATER_THAN  &kp RIGHT_PARENTHESIS  &kp RIGHT_BRACE  &kp RIGHT_BRACKET  &kp AT_SIGN    &kp NON_US_BACKSLASH
+&none  &kp LSHFT  &kp LEFT_GUI  &kp LALT  &kp LEFT_CONTROL  &none           &kp GREATER_THAN  &kp RIGHT_PARENTHESIS  &kp RIGHT_BRACE  &kp RIGHT_BRACKET  &kp AT_SIGN    &kp BACKSLASH
                   &none         &none                                                                                &none            &none
                                           &none             &none  &none    &none             &none                  &none
                                           &none             &none  &none    &none             &none                  &none
@@ -525,7 +525,7 @@
 
 &trackball_peripheral_listener {
     input-processors =
-        //     activate layer 4 within 500ms of the trackball moving,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        //     activate layer 4 within 500ms of the trackball moving,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_temp_layer 4 500>;
 };
 
@@ -533,10 +533,10 @@
 
 &trackball_central_listener {
     input-processors =
-        // multiply sensitivity by 1, divide by 3 (make it slower for scrolling),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // multiply sensitivity by 1, divide by 3 (make it slower for scrolling),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_xy_scaler 1 16>,
-        // make this trackball output scrolling events by default instead of cursor movement,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // make this trackball output scrolling events by default instead of cursor movement,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_xy_to_scroll_mapper>,
-        // invert vertical scrolling so that the view moves in the same direction as the top of the trackball.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // invert vertical scrolling so that the view moves in the same direction as the top of the trackball.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_scroll_transform INPUT_TRANSFORM_Y_INVERT>;
 };
