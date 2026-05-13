@@ -261,6 +261,13 @@
             bindings = <&kp LS(RIGHT) &kp LG(X) &kp LEFT &kp LG(V)>;
             label = "SWAPLETTERS";
         };
+
+        wSwapLetters: wSwapLetters {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LS(RIGHT) &kp LC(X) &kp LEFT &kp LC(V)>;
+            label = "WSWAPLETTERS";
+        };
     };
 
     keymap {
@@ -288,7 +295,7 @@
 &none    &mt LEFT_SHIFT Z  &mt LEFT_GUI X  &mt LEFT_ALT C  &mt LEFT_CONTROL V  &mt LG(LC(LS(LA(LEFT_COMMAND)))) B                 &mt RS(RA(RC(RG(RIGHT_COMMAND)))) N  &mt RIGHT_CONTROL M  &mt RIGHT_ALT COMMA  &mt RIGHT_GUI PERIOD  &mt RIGHT_SHIFT SLASH  &none
                            &none           &to 6                                                                                                                                            &kp MINUS            &none
                                                            &lt 10 ESCAPE       &sk LEFT_SHIFT                      &kp LC(TAB)    &none                                &none                &lt 12 DEL
-                                                           &lt 16 TAB          &lt 8 E                             &none          &none                                &kp SPACE            &lt 14 BACKSPACE
+                                                           &lt 16 TAB          &lt 8 E                             &none          &wSwapLetters                        &kp SPACE            &lt 14 BACKSPACE
             >;
         };
 
@@ -301,7 +308,7 @@
 &none     &mt LEFT_SHIFT V  &mt LEFT_CONTROL W  &mt LEFT_ALT G  &mt LEFT_COMMAND M  &mt LG(LC(LS(LA(LEFT_COMMAND)))) SEMICOLON                           &mt RS(RA(RC(RG(RIGHT_COMMAND)))) MINUS  &mt RIGHT_COMMAND P  &mt RIGHT_ALT COMMA  &mt RIGHT_CONTROL PERIOD  &mt RIGHT_SHIFT X  &none
                             &to 5               &none                                                                                                                                                                  &kp MINUS            &none
                                                                 &lt 9 ESCAPE        &sk LEFT_SHIFT                              &kp LS(LA(LC(SPACE)))    &none                                    &sk LEFT_SHIFT       &lt 11 DEL
-                                                                &lt 15 TAB          &lt 7 E                                     &none                    &none                                    &kp SPACE            &lt 13 BACKSPACE
+                                                                &lt 15 TAB          &lt 7 E                                     &none                    &mSwapLetters                            &kp SPACE            &lt 13 BACKSPACE
             >;
         };
 
@@ -314,7 +321,7 @@
 &none    &mt LEFT_SHIFT V  &mt LEFT_GUI W  &mt LEFT_ALT G  &mt LEFT_CONTROL M  &mt LG(LC(LS(LA(LEFT_COMMAND)))) SEMICOLON           &mt RS(RA(RC(RG(RIGHT_COMMAND)))) MINUS  &mt RIGHT_CONTROL P  &mt RIGHT_ALT COMMA  &mt RIGHT_GUI PERIOD  &mt RIGHT_SHIFT X  &none
                            &none           &none                                                                                                                                                  &kp MINUS            &none
                                                            &lt 10 ESCAPE       &none                                       &none    &none                                    &none                &lt 12 DEL
-                                                           &lt 16 TAB          &lt 10 E                                    &none    &none                                    &kp SPACE            &lt 14 BACKSPACE
+                                                           &lt 16 TAB          &lt 10 E                                    &none    &wSwapLetters                            &kp SPACE            &lt 14 BACKSPACE
             >;
         };
 
@@ -532,7 +539,7 @@
 
 &trackball_peripheral_listener {
     input-processors =
-        //     activate layer 4 within 500ms of the trackball moving,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        //     activate layer 4 within 500ms of the trackball moving,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_temp_layer 4 500>;
 };
 
@@ -540,10 +547,10 @@
 
 &trackball_central_listener {
     input-processors =
-        // multiply sensitivity by 1, divide by 3 (make it slower for scrolling),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // multiply sensitivity by 1, divide by 3 (make it slower for scrolling),,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_xy_scaler 1 16>,
-        // make this trackball output scrolling events by default instead of cursor movement,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // make this trackball output scrolling events by default instead of cursor movement,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_xy_to_scroll_mapper>,
-        // invert vertical scrolling so that the view moves in the same direction as the top of the trackball.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
+        // invert vertical scrolling so that the view moves in the same direction as the top of the trackball.,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
         <&zip_scroll_transform INPUT_TRANSFORM_Y_INVERT>;
 };
